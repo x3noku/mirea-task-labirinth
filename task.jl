@@ -35,13 +35,6 @@ get_coords(robot::AbstractCoordRobot) = robot.coords
 
 
 # Robots
-mutable struct SimpleRobot <: AbstractRobot
-	SimpleRobot(robot::Robot) = new(robot)
-	SimpleRobot() = new(Robot(animate = true))
-
-	robot::Robot
-end
-
 mutable struct DirectedRobot <: AbstractDirectedRobot
 	DirectedRobot(robot::Robot) = new(robot, Nord)
 	DirectedRobot() = new(Robot(animate = true), Nord)
