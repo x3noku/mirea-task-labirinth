@@ -156,14 +156,14 @@ function around!(robot::AbstractDirectedRobot)
 end
 
 function around!(robot::AbstractCoordRobot)
-	initial_coords = Coordinates(get_coords(robot).x, get_coords(robot).y)
+	initial_x, initial_y = get_axises(get_coords(robot))
 	initial_direction = get_direction_by_left_border(robot)
 	set_direction(robot, initial_direction)
 	
 	function condition()
 		x, y = get_axises(get_coords(robot))
 
-		return get_direction(robot) == initial_direction && initial_coords.x == x && initial_coords.y == y
+		return get_direction(robot) == initial_direction && initial_x == x && initial_y == y
 	end
 
 	around!(robot, condition)
